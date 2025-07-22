@@ -12,7 +12,7 @@ import pageObject.ResultsSearchPage;
 
 import java.util.List;
 
-public class BtlTest extends baseTest {
+public class BtlTest extends BaseTest {
 
     @Test
     @Description("מבצע חיפוש ובודק את תוצאתו")

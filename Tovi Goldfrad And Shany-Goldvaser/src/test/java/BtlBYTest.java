@@ -6,7 +6,7 @@ import pageObject.BtlBYPage;
 import pageObject.BtlBasePage;
 import pageObject.ResultsSearchPage;
 
-public class BtlBYTest extends baseTest{
+public class BtlBYTest extends BaseTest{
 
     @Test
     @Description("חישוב דמי ביטוח לאומי לבחור ישיבה")
@@ -16,24 +16,24 @@ public class BtlBYTest extends baseTest{
         BtlBYPage BY = new BtlBYPage(driver);
         BY.clickOnDM();
         ResultsSearchPage resultsSearchPage = new ResultsSearchPage(driver);
-        String t= resultsSearchPage.equal_title("//*[@id=\"lbl_title\"]");
-        Assertions.assertEquals("דמי ביטוח לאומי" ,t,"not success title") ;
+        String res = resultsSearchPage.equal_title("//*[@id=\"lbl_title\"]");
+        Assertions.assertEquals("דמי ביטוח לאומי" ,res,"not success title") ;
         BY.clickOnCal();
-        t=resultsSearchPage.equal_title("//*[@id=\"mainContent\"]/div[1]/h1");
-        Assertions.assertEquals("חישוב דמי ביטוח עבור עצמאי, תלמיד, שוהה בחוץ לארץ ומי שלא עובד" ,t,"not success title2") ;
+        res = resultsSearchPage.equal_title("//*[@id=\"mainContent\"]/div[1]/h1");
+        Assertions.assertEquals("חישוב דמי ביטוח עבור עצמאי, תלמיד, שוהה בחוץ לארץ ומי שלא עובד" ,res,"not success title2") ;
         BY.clickOnby();
         BY.clickOnMale();
         BY.enterValue();
         Thread.sleep(5000);
-        t=resultsSearchPage.equal_title("//*[@id=\"header\"]");
-        Assertions.assertTrue(t.contains("צעד שני"),"not success title3");
+        res = resultsSearchPage.equal_title("//*[@id=\"header\"]");
+        Assertions.assertTrue(res.contains("צעד שני"),"not success title3");
         BY.clickOnNo();
         BY.clickOnCon();
         Thread.sleep(5000);
-        t = resultsSearchPage.equal_title("//*[@id=\"header\"]");
-        Assertions.assertTrue(t.contains("סיום"),"not success title4");
-        t=resultsSearchPage.equal_title("//*[@id=\"ctl00_ctl43_g_642b1586_5c41_436a_a04c_e3b5ba94ba69_ctl00_InsuranceNotSachirWizard_div_Result\"]/ul/li[3]");
-        Assertions.assertTrue(t.contains("163"),"not success title4"); ;
+        res = resultsSearchPage.equal_title("//*[@id=\"header\"]");
+        Assertions.assertTrue(res.contains("סיום"),"not success title4");
+        res = resultsSearchPage.equal_title("//*[@id=\"ctl00_ctl43_g_642b1586_5c41_436a_a04c_e3b5ba94ba69_ctl00_InsuranceNotSachirWizard_div_Result\"]/ul/li[3]");
+        Assertions.assertTrue(res.contains("163"),"not success title4"); ;
 
     }
     
